@@ -7,20 +7,45 @@ public class MessageCreator {
         SendMessage answer = new SendMessage();
 
         if (command.equals("/start")) {
-            answer.setText("Привет! Если тебя приняли, то ты попал как раз по адресу! Чтобы тебе была оказана помощь, после нажатия кнопки" +
-                    "Продолжить будет предложено поделиться контактом. Сделай это, данные будут направлены людям, " +
-                    "которые будут тебе помогать!");
+            answer.setText(MessageTextProperties.getMessages("START_MESSAGE"));
             answer.setChatId(chat_id);
             answer.setReplyMarkup(KeyboardConstructor.startKeyboard());
         }
         else if (command.equals("Продолжить")) {
-            answer.setText("Выбери свой город из списка. Твои данные будут направлены в чат в юристам, которые тобой займутся");
+            answer.setText(MessageTextProperties.getMessages("CITY_SELECT_MESSAGE"));
             answer.setChatId(chat_id);
             answer.setReplyMarkup(KeyboardConstructor.citySelectionKeyboard());
 
         }
 
         else if (command.equals("Москва")) {
+            answer.setText("Новая заявочка! " + MessageListener.applicantContact);
+            answer.setChatId(ConfProperties.getProperty("MOSCOW_chat_id"));
+
+        }
+        else if (command.equals("Санкт-Петербург")) {
+            answer.setText("Новая заявочка! " + MessageListener.applicantContact);
+            answer.setChatId(ConfProperties.getProperty("SPB_chat_id"));
+
+        }else if (command.equals("Екатеринбург")) {
+            answer.setText("Новая заявочка! " + MessageListener.applicantContact);
+            answer.setChatId(ConfProperties.getProperty("EKB_chat_id"));
+
+        }else if (command.equals("Самара")) {
+            answer.setText("Новая заявочка! " + MessageListener.applicantContact);
+            answer.setChatId(ConfProperties.getProperty("SAMARA_chat_id"));
+
+        }else if (command.equals("Калининград")) {
+            answer.setText("Новая заявочка! " + MessageListener.applicantContact);
+            answer.setChatId(ConfProperties.getProperty("KLGD_chat_id"));
+
+        }
+        else if (command.equals("Псков")) {
+            answer.setText("Новая заявочка! " + MessageListener.applicantContact);
+            answer.setChatId(ConfProperties.getProperty("PSK_chat_id"));
+
+        }
+        else if (command.equals("Хабаровск")) {
             answer.setText("Новая заявочка! " + MessageListener.applicantContact);
             answer.setChatId(ConfProperties.getProperty("city1_chat_id"));
 
